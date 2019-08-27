@@ -1,0 +1,45 @@
+
+  .reg {
+    padding: 16px;
+    background-color: white;
+  }
+
+  input[type=text], input[type=password],input[type=email],input[type=tel] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 0 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  button {
+    background-color: rgb(17, 30, 216);
+    font-weight: bold;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+
+  label {
+    color: rgb(17, 16, 15);
+    font-weight: bold;
+    display: block;
+    width: 150px;
+    float: left;
+    font-size: 20px;
+    }
+
+    .err{
+        color: rgb(231, 26, 26);
+        margin-top: 0%;
+            font-size: 20px;
+    }
+
+    button[disabled]{
+      background-color: rgb(105, 133, 185);
+    }

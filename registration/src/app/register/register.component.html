@@ -1,0 +1,61 @@
+<h1>Register here</h1>
+<form [formGroup]="profile" class="reg">
+    <div class="form-group">
+        <label>Name:</label>
+        <input type="text" placeholder="Enter your name" formControlName="name">
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="err">
+            <small *ngIf="name.errors.minlength">your name should contain Atleast 3 character</small>
+            <small *ngIf="name.errors.required">name is mandatory</small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputEmail4">Email</label>
+        <input type="email" class="form-control" formControlName="email" id="inputEmail4"
+            placeholder="Enter your Email">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="err">
+            <small *ngIf="email.errors.email">please enter the valid email</small>
+            <small *ngIf="email.errors.required">Email is mandatory</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="phone">Mobile number:</label>
+        <input type="tel" id="phone" class="form-control" name="phone" formControlName="mobileNo"
+            placeholder="Enter your contact number">
+        <div *ngIf="mobileNo.invalid && (mobileNo.dirty || mobileNo.touched)" class="err">
+            <small *ngIf="mobileNo.errors.pattern">please enter valid number</small>
+            <small *ngIf="mobileNo.errors.required">Mobile no is mandatory</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword4">Password</label>
+        <input type="password" class="form-control" formControlName="password" id="inputPassword4"
+            placeholder="create password">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="err">
+            <small *ngIf="password.errors.patternInvalid===false">should contain one upper case, one digit and one special characters
+                and at
+                least 8 character long</small>
+            <!-- <small *ngIf="password.errors.required">Password is mandatory</small> -->
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="inputPassword4">ConfirmPassword</label>
+        <input type="password" class="form-control" formControlName="confPassword" placeholder="Confirm Password">
+        <small *ngIf="profile.errors" >Confirm Password {{profile.errors.password}}</small>
+        <div *ngIf="confPassword.invalid && (confPassword.dirty || confPassword.touched)" class="err">
+            <small *ngIf="confPassword.errors.required">Password is mandatory</small>
+        </div>
+    </div>
+    <button type="submit" (click)="onSubmit()" [disabled]="profile.invalid">Submit</button>
+
+</form>
+
+<ng-container>
+        <div *ngIf="show">
+            <p>name : {{profile.get('name').value}}</p>
+            <p>Email : {{profile.get('email').value}}</p>
+            <p>Mobile No : {{mobileNo.value}}</p>
+        </div>
+    </ng-container>
